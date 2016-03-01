@@ -1,0 +1,2 @@
+# MindFind
+Semestrinio projekto kodas
