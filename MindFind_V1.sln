@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MindFind_V1", "MindFind_V1.csproj", "{B8CD35A7-1210-4424-BBE7-AE2BD7019681}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MindFind_DB", "..\MindFind_DB\MindFind_DB.sqlproj", "{AC5DE9BC-F345-4C6F-BA50-0E94CCC84398}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{B8CD35A7-1210-4424-BBE7-AE2BD7019681}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8CD35A7-1210-4424-BBE7-AE2BD7019681}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8CD35A7-1210-4424-BBE7-AE2BD7019681}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC5DE9BC-F345-4C6F-BA50-0E94CCC84398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC5DE9BC-F345-4C6F-BA50-0E94CCC84398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC5DE9BC-F345-4C6F-BA50-0E94CCC84398}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{AC5DE9BC-F345-4C6F-BA50-0E94CCC84398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC5DE9BC-F345-4C6F-BA50-0E94CCC84398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC5DE9BC-F345-4C6F-BA50-0E94CCC84398}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
