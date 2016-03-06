@@ -7,7 +7,7 @@
     <Name>MindFind_DB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{ac5de9bc-f345-4c6f-ba50-0e94ccc84398}</ProjectGuid>
+    <ProjectGuid>{389dd2f1-a847-4e7e-be51-b95f420f67bb}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
