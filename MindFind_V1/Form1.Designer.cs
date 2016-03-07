@@ -30,19 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ribbon1 = new System.Windows.Forms.Ribbon();
-            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
-            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonSeparator2 = new System.Windows.Forms.RibbonSeparator();
-            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
-            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonOrbMenuItem2 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonOrbMenuItem3 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
+            this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator2 = new System.Windows.Forms.RibbonSeparator();
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
+            this.ribbonTab1 = new System.Windows.Forms.RibbonTab();
+            this.ribbonPanel1 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
             this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
             this.SuspendLayout();
             // 
@@ -84,66 +84,6 @@
             this.ribbon1.TabsMargin = new System.Windows.Forms.Padding(12, 26, 20, 0);
             this.ribbon1.TabSpacing = 6;
             this.ribbon1.Text = "ribbon1";
-            // 
-            // ribbonTab2
-            // 
-            this.ribbonTab2.Panels.Add(this.ribbonPanel2);
-            this.ribbonTab2.Tag = null;
-            this.ribbonTab2.Text = "Pasirinkti";
-            this.ribbonTab2.ToolTip = null;
-            this.ribbonTab2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
-            this.ribbonTab2.ToolTipImage = null;
-            this.ribbonTab2.ToolTipTitle = null;
-            this.ribbonTab2.Value = null;
-            // 
-            // ribbonPanel2
-            // 
-            this.ribbonPanel2.Items.Add(this.ribbonButton3);
-            this.ribbonPanel2.Items.Add(this.ribbonSeparator2);
-            this.ribbonPanel2.Items.Add(this.ribbonButton4);
-            this.ribbonPanel2.Tag = null;
-            this.ribbonPanel2.Text = "Navigacija";
-            // 
-            // ribbonSeparator2
-            // 
-            this.ribbonSeparator2.AltKey = null;
-            this.ribbonSeparator2.CheckedGroup = null;
-            this.ribbonSeparator2.Image = null;
-            this.ribbonSeparator2.Tag = null;
-            this.ribbonSeparator2.Text = null;
-            this.ribbonSeparator2.ToolTip = null;
-            this.ribbonSeparator2.ToolTipTitle = null;
-            this.ribbonSeparator2.Value = null;
-            // 
-            // ribbonTab1
-            // 
-            this.ribbonTab1.Panels.Add(this.ribbonPanel1);
-            this.ribbonTab1.Tag = null;
-            this.ribbonTab1.Text = "Atpažinti";
-            this.ribbonTab1.ToolTip = null;
-            this.ribbonTab1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
-            this.ribbonTab1.ToolTipImage = null;
-            this.ribbonTab1.ToolTipTitle = null;
-            this.ribbonTab1.Value = null;
-            // 
-            // ribbonPanel1
-            // 
-            this.ribbonPanel1.Items.Add(this.ribbonButton1);
-            this.ribbonPanel1.Items.Add(this.ribbonSeparator1);
-            this.ribbonPanel1.Items.Add(this.ribbonButton2);
-            this.ribbonPanel1.Tag = null;
-            this.ribbonPanel1.Text = "Veiksmai";
-            // 
-            // ribbonSeparator1
-            // 
-            this.ribbonSeparator1.AltKey = null;
-            this.ribbonSeparator1.CheckedGroup = null;
-            this.ribbonSeparator1.Image = null;
-            this.ribbonSeparator1.Tag = null;
-            this.ribbonSeparator1.Text = null;
-            this.ribbonSeparator1.ToolTip = null;
-            this.ribbonSeparator1.ToolTipTitle = null;
-            this.ribbonSeparator1.Value = null;
             // 
             // ribbonOrbMenuItem1
             // 
@@ -206,6 +146,25 @@
             this.ribbonButton5.ToolTipTitle = null;
             this.ribbonButton5.Value = null;
             // 
+            // ribbonTab2
+            // 
+            this.ribbonTab2.Panels.Add(this.ribbonPanel2);
+            this.ribbonTab2.Tag = null;
+            this.ribbonTab2.Text = "Pasirinkti";
+            this.ribbonTab2.ToolTip = null;
+            this.ribbonTab2.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.ribbonTab2.ToolTipImage = null;
+            this.ribbonTab2.ToolTipTitle = null;
+            this.ribbonTab2.Value = null;
+            // 
+            // ribbonPanel2
+            // 
+            this.ribbonPanel2.Items.Add(this.ribbonButton3);
+            this.ribbonPanel2.Items.Add(this.ribbonSeparator2);
+            this.ribbonPanel2.Items.Add(this.ribbonButton4);
+            this.ribbonPanel2.Tag = null;
+            this.ribbonPanel2.Text = "Navigacija";
+            // 
             // ribbonButton3
             // 
             this.ribbonButton3.AltKey = null;
@@ -220,6 +179,17 @@
             this.ribbonButton3.ToolTip = null;
             this.ribbonButton3.ToolTipTitle = null;
             this.ribbonButton3.Value = null;
+            // 
+            // ribbonSeparator2
+            // 
+            this.ribbonSeparator2.AltKey = null;
+            this.ribbonSeparator2.CheckedGroup = null;
+            this.ribbonSeparator2.Image = null;
+            this.ribbonSeparator2.Tag = null;
+            this.ribbonSeparator2.Text = null;
+            this.ribbonSeparator2.ToolTip = null;
+            this.ribbonSeparator2.ToolTipTitle = null;
+            this.ribbonSeparator2.Value = null;
             // 
             // ribbonButton4
             // 
@@ -236,6 +206,25 @@
             this.ribbonButton4.ToolTipTitle = null;
             this.ribbonButton4.Value = null;
             // 
+            // ribbonTab1
+            // 
+            this.ribbonTab1.Panels.Add(this.ribbonPanel1);
+            this.ribbonTab1.Tag = null;
+            this.ribbonTab1.Text = "Atpažinti";
+            this.ribbonTab1.ToolTip = null;
+            this.ribbonTab1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.None;
+            this.ribbonTab1.ToolTipImage = null;
+            this.ribbonTab1.ToolTipTitle = null;
+            this.ribbonTab1.Value = null;
+            // 
+            // ribbonPanel1
+            // 
+            this.ribbonPanel1.Items.Add(this.ribbonButton1);
+            this.ribbonPanel1.Items.Add(this.ribbonSeparator1);
+            this.ribbonPanel1.Items.Add(this.ribbonButton2);
+            this.ribbonPanel1.Tag = null;
+            this.ribbonPanel1.Text = "Veiksmai";
+            // 
             // ribbonButton1
             // 
             this.ribbonButton1.AltKey = null;
@@ -250,6 +239,17 @@
             this.ribbonButton1.ToolTip = null;
             this.ribbonButton1.ToolTipTitle = null;
             this.ribbonButton1.Value = null;
+            // 
+            // ribbonSeparator1
+            // 
+            this.ribbonSeparator1.AltKey = null;
+            this.ribbonSeparator1.CheckedGroup = null;
+            this.ribbonSeparator1.Image = null;
+            this.ribbonSeparator1.Tag = null;
+            this.ribbonSeparator1.Text = null;
+            this.ribbonSeparator1.ToolTip = null;
+            this.ribbonSeparator1.ToolTipTitle = null;
+            this.ribbonSeparator1.Value = null;
             // 
             // ribbonButton2
             // 
@@ -275,6 +275,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "MindFind";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
