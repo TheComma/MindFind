@@ -15,6 +15,8 @@ namespace MindFind_V1
         public Form1()
         {
             InitializeComponent();
+            DataLoad dad = new DataLoad();
+            dad.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
