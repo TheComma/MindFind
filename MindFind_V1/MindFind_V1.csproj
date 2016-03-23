@@ -44,9 +44,18 @@
     <Reference Include="Emgu.CV.World">
       <HintPath>irankiai\Emgu.CV.World.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms.Ribbon35">
       <HintPath>irankiai\System.Windows.Forms.Ribbon35.dll</HintPath>
     </Reference>
@@ -79,8 +88,29 @@
     <Compile Include="Meniu.Designer.cs">
       <DependentUpon>Meniu.cs</DependentUpon>
     </Compile>
+    <Compile Include="MindFindDB.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MindFindDB.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MindFindDB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MindFindDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MindFindDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MindFindDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Photo.cs">
+      <DependentUpon>MindFindDB.tt</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tag.cs">
+      <DependentUpon>MindFindDB.tt</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="DataLoad.resx">
       <DependentUpon>DataLoad.cs</DependentUpon>
     </EmbeddedResource>
@@ -94,6 +124,24 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EntityDeploy Include="MindFindDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MindFindDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MindFindDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MindFindDB.edmx</DependentUpon>
+      <LastGenOutput>MindFindDB.Context.cs</LastGenOutput>
+    </None>
+    <None Include="MindFindDB.edmx.diagram">
+      <DependentUpon>MindFindDB.edmx</DependentUpon>
+    </None>
+    <None Include="MindFindDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MindFindDB.edmx</DependentUpon>
+      <LastGenOutput>MindFindDB.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -128,6 +176,9 @@
     <Content Include="opencv_ffmpeg310.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
