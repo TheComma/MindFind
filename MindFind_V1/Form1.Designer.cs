@@ -52,6 +52,13 @@
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
+            this.ribbonButton1 = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator6 = new System.Windows.Forms.RibbonSeparator();
+            this.ribbonSeparator7 = new System.Windows.Forms.RibbonSeparator();
+            this.ribbonButton2 = new System.Windows.Forms.RibbonButton();
+            this.ribbonSeparator8 = new System.Windows.Forms.RibbonSeparator();
+            this.ribbonButton11 = new System.Windows.Forms.RibbonButton();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -247,6 +254,10 @@
             this.ribbonPanel5.Items.Add(this.ribbonButton9);
             this.ribbonPanel5.Items.Add(this.ribbonSeparator5);
             this.ribbonPanel5.Items.Add(this.ribbonButton10);
+            this.ribbonPanel5.Items.Add(this.ribbonSeparator7);
+            this.ribbonPanel5.Items.Add(this.ribbonButton2);
+            this.ribbonPanel5.Items.Add(this.ribbonSeparator8);
+            this.ribbonPanel5.Items.Add(this.ribbonButton11);
             this.ribbonPanel5.Tag = null;
             this.ribbonPanel5.Text = "Veiksmai";
             // 
@@ -282,6 +293,9 @@
             this.ribbonButton10.CheckedGroup = null;
             this.ribbonButton10.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
             this.ribbonButton10.DropDownArrowSize = new System.Drawing.Size(5, 3);
+            this.ribbonButton10.DropDownItems.Add(this.ribbonSeparator1);
+            this.ribbonButton10.DropDownItems.Add(this.ribbonButton1);
+            this.ribbonButton10.DropDownItems.Add(this.ribbonSeparator6);
             this.ribbonButton10.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton10.Image")));
             this.ribbonButton10.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton10.SmallImage")));
             this.ribbonButton10.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
@@ -363,6 +377,94 @@
             this.ribbonButton3.ToolTipTitle = null;
             this.ribbonButton3.Value = null;
             // 
+            // ribbonSeparator1
+            // 
+            this.ribbonSeparator1.AltKey = null;
+            this.ribbonSeparator1.CheckedGroup = null;
+            this.ribbonSeparator1.Image = null;
+            this.ribbonSeparator1.Tag = null;
+            this.ribbonSeparator1.Text = null;
+            this.ribbonSeparator1.ToolTip = null;
+            this.ribbonSeparator1.ToolTipTitle = null;
+            this.ribbonSeparator1.Value = null;
+            // 
+            // ribbonButton1
+            // 
+            this.ribbonButton1.AltKey = null;
+            this.ribbonButton1.CheckedGroup = null;
+            this.ribbonButton1.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
+            this.ribbonButton1.DropDownArrowSize = new System.Drawing.Size(5, 3);
+            this.ribbonButton1.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.Image")));
+            this.ribbonButton1.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton1.SmallImage")));
+            this.ribbonButton1.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
+            this.ribbonButton1.Tag = null;
+            this.ribbonButton1.Text = "ribbonButton1";
+            this.ribbonButton1.ToolTip = null;
+            this.ribbonButton1.ToolTipTitle = null;
+            this.ribbonButton1.Value = null;
+            // 
+            // ribbonSeparator6
+            // 
+            this.ribbonSeparator6.AltKey = null;
+            this.ribbonSeparator6.CheckedGroup = null;
+            this.ribbonSeparator6.Image = null;
+            this.ribbonSeparator6.Tag = null;
+            this.ribbonSeparator6.Text = null;
+            this.ribbonSeparator6.ToolTip = null;
+            this.ribbonSeparator6.ToolTipTitle = null;
+            this.ribbonSeparator6.Value = null;
+            // 
+            // ribbonSeparator7
+            // 
+            this.ribbonSeparator7.AltKey = null;
+            this.ribbonSeparator7.CheckedGroup = null;
+            this.ribbonSeparator7.Image = null;
+            this.ribbonSeparator7.Tag = null;
+            this.ribbonSeparator7.Text = null;
+            this.ribbonSeparator7.ToolTip = null;
+            this.ribbonSeparator7.ToolTipTitle = null;
+            this.ribbonSeparator7.Value = null;
+            // 
+            // ribbonButton2
+            // 
+            this.ribbonButton2.AltKey = null;
+            this.ribbonButton2.CheckedGroup = null;
+            this.ribbonButton2.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
+            this.ribbonButton2.DropDownArrowSize = new System.Drawing.Size(5, 3);
+            this.ribbonButton2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.Image")));
+            this.ribbonButton2.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
+            this.ribbonButton2.Tag = null;
+            this.ribbonButton2.Text = "Žymėti";
+            this.ribbonButton2.ToolTip = null;
+            this.ribbonButton2.ToolTipTitle = null;
+            this.ribbonButton2.Value = null;
+            // 
+            // ribbonSeparator8
+            // 
+            this.ribbonSeparator8.AltKey = null;
+            this.ribbonSeparator8.CheckedGroup = null;
+            this.ribbonSeparator8.Image = null;
+            this.ribbonSeparator8.Tag = null;
+            this.ribbonSeparator8.Text = null;
+            this.ribbonSeparator8.ToolTip = null;
+            this.ribbonSeparator8.ToolTipTitle = null;
+            this.ribbonSeparator8.Value = null;
+            // 
+            // ribbonButton11
+            // 
+            this.ribbonButton11.AltKey = null;
+            this.ribbonButton11.CheckedGroup = null;
+            this.ribbonButton11.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
+            this.ribbonButton11.DropDownArrowSize = new System.Drawing.Size(5, 3);
+            this.ribbonButton11.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.Image")));
+            this.ribbonButton11.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton11.SmallImage")));
+            this.ribbonButton11.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
+            this.ribbonButton11.Tag = null;
+            this.ribbonButton11.Text = "Importuoti";
+            this.ribbonButton11.ToolTip = null;
+            this.ribbonButton11.ToolTipTitle = null;
+            this.ribbonButton11.Value = null;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,6 +504,13 @@
         private System.Windows.Forms.RibbonSeparator ribbonSeparator2;
         private System.Windows.Forms.RibbonButton ribbonButton3;
         private System.Windows.Forms.RibbonTab ribbonTab2;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator1;
+        private System.Windows.Forms.RibbonButton ribbonButton1;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator6;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator7;
+        private System.Windows.Forms.RibbonButton ribbonButton2;
+        private System.Windows.Forms.RibbonSeparator ribbonSeparator8;
+        private System.Windows.Forms.RibbonButton ribbonButton11;
 
     }
 }
