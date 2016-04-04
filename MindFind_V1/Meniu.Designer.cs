@@ -167,7 +167,7 @@
             this.ribbonButton2.DropDownArrowSize = new System.Drawing.Size(5, 3);
             this.ribbonButton2.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.Image")));
             this.ribbonButton2.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton2.SmallImage")));
-            this.ribbonButton2.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
+            this.ribbonButton2.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
             this.ribbonButton2.Tag = null;
             this.ribbonButton2.Text = "Iš failo";
             this.ribbonButton2.ToolTip = null;
@@ -203,7 +203,7 @@
             this.ribbonButton3.DropDownArrowSize = new System.Drawing.Size(5, 3);
             this.ribbonButton3.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.Image")));
             this.ribbonButton3.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton3.SmallImage")));
-            this.ribbonButton3.Style = System.Windows.Forms.RibbonButtonStyle.DropDown;
+            this.ribbonButton3.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
             this.ribbonButton3.Tag = null;
             this.ribbonButton3.Text = "Be veidų";
             this.ribbonButton3.ToolTip = null;

@@ -26,5 +26,10 @@ namespace MindFind_V1
         {
 
         }
+
+        private void is_failo(object sender, EventArgs e)
+        {
+            MessageBox.Show("Pofke dukas");
+        }
     }
 }
