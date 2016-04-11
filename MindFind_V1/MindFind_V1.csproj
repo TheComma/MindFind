@@ -35,6 +35,14 @@
     <Reference Include="Emgu.CV.DebuggerVisualizers.VS2012">
       <HintPath>irankiai\Emgu.CV.DebuggerVisualizers.VS2012.dll</HintPath>
     </Reference>
+    <Reference Include="Emgu.CV.DebuggerVisualizers.VS2013, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>irankiai\Emgu.CV.DebuggerVisualizers.VS2013.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.DebuggerVisualizers.VS2015, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>irankiai\Emgu.CV.DebuggerVisualizers.VS2015.dll</HintPath>
+    </Reference>
     <Reference Include="Emgu.CV.UI">
       <HintPath>irankiai\Emgu.CV.UI.dll</HintPath>
     </Reference>
@@ -50,12 +58,18 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.Compatibility" />
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.Ribbon35">
       <HintPath>irankiai\System.Windows.Forms.Ribbon35.dll</HintPath>
     </Reference>
