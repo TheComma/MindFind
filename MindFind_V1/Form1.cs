@@ -48,11 +48,6 @@ namespace MindFind_V1
         {
             imgOriginal = new Image<Bgr, byte>(txtImageFile.Text);
             imgGray = imgOriginal.Convert<Gray, Byte>();
-
-            //problema tame, kad neleidžia pridėti EGMU image box'o dėl kažkokios priežąsties, nes Designer nemato, kad Egmu gali tipo turėt CV biblioteką ar koks ten šūdas, todėl neduoda atvaizduot
-            
-            System.Drawing.Image imgB = imgBlank.ToBitmap();
-            ibImage.Image = imgB;
             Application.DoEvents();
             swStopWatch.Start();
 
@@ -70,9 +65,11 @@ namespace MindFind_V1
                 {
                     imgOriginal.Draw(acEye, new Bgr(Color.Blue), 2);
                 }
-      
-                System.Drawing.Image imgOrg = imgOriginal.ToBitmap();
-                ibImage.Image = imgOrg;
+
+            System.Drawing.Image imgOrg = imgOriginal.ToBitmap();
+            ibImage.Image = imgOrg;
+
+           
             //stopwatch, jei norėsim kažkur įterpt per kiek laiko aptinka mordą
             /*  
               swStopWatch.Stop();
@@ -100,6 +97,17 @@ namespace MindFind_V1
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtImageFile_Click(object sender, EventArgs e)
+        {
+            DialogResult drImageFile;
+
+            drImageFile = ofdImage.ShowDialog();
+            txtImageFile.Text = ofdImage.FileName;
+
+            if (ofdImage.FileName != "")
+                loadAndProcessImage();
         }
     }
 }

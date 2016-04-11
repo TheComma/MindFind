@@ -35,8 +35,7 @@
     <Reference Include="Emgu.CV.DebuggerVisualizers.VS2012">
       <HintPath>irankiai\Emgu.CV.DebuggerVisualizers.VS2012.dll</HintPath>
     </Reference>
-    <Reference Include="Emgu.CV.DebuggerVisualizers.VS2013, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Emgu.CV.DebuggerVisualizers.VS2013">
       <HintPath>irankiai\Emgu.CV.DebuggerVisualizers.VS2013.dll</HintPath>
     </Reference>
     <Reference Include="Emgu.CV.DebuggerVisualizers.VS2015, Version=3.1.0.2282, Culture=neutral, PublicKeyToken=7281126722ab4438, processorArchitecture=MSIL">

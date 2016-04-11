@@ -59,8 +59,9 @@
             this.ribbonOrbMenuItem1 = new System.Windows.Forms.RibbonOrbMenuItem();
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
-            this.txtImageFile = new System.Windows.Forms.Button();
             this.ibImage = new System.Windows.Forms.PictureBox();
+            this.txtImageFile = new System.Windows.Forms.TextBox();
+            this.ofdImage = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ibImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -93,7 +94,7 @@
             this.ribbon1.QuickAcessToolbar.ToolTip = null;
             this.ribbon1.QuickAcessToolbar.ToolTipTitle = null;
             this.ribbon1.QuickAcessToolbar.Value = null;
-            this.ribbon1.Size = new System.Drawing.Size(963, 137);
+            this.ribbon1.Size = new System.Drawing.Size(1126, 137);
             this.ribbon1.TabIndex = 0;
             this.ribbon1.Tabs.Add(this.ribbonTab3);
             this.ribbon1.Tabs.Add(this.ribbonTab4);
@@ -469,31 +470,30 @@
             this.ribbonButton3.ToolTipTitle = null;
             this.ribbonButton3.Value = null;
             // 
-            // txtImageFile
-            // 
-            this.txtImageFile.Location = new System.Drawing.Point(306, 83);
-            this.txtImageFile.Name = "txtImageFile";
-            this.txtImageFile.Size = new System.Drawing.Size(75, 23);
-            this.txtImageFile.TabIndex = 1;
-            this.txtImageFile.Text = "ImageFile";
-            this.txtImageFile.UseVisualStyleBackColor = true;
-            // 
             // ibImage
             // 
             this.ibImage.Location = new System.Drawing.Point(12, 143);
             this.ibImage.Name = "ibImage";
-            this.ibImage.Size = new System.Drawing.Size(926, 322);
+            this.ibImage.Size = new System.Drawing.Size(1102, 764);
             this.ibImage.TabIndex = 2;
             this.ibImage.TabStop = false;
             this.ibImage.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // txtImageFile
+            // 
+            this.txtImageFile.Location = new System.Drawing.Point(333, 77);
+            this.txtImageFile.Name = "txtImageFile";
+            this.txtImageFile.Size = new System.Drawing.Size(100, 20);
+            this.txtImageFile.TabIndex = 3;
+            this.txtImageFile.Click += new System.EventHandler(this.txtImageFile_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 477);
-            this.Controls.Add(this.ibImage);
+            this.ClientSize = new System.Drawing.Size(1126, 919);
             this.Controls.Add(this.txtImageFile);
+            this.Controls.Add(this.ibImage);
             this.Controls.Add(this.ribbon1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -501,6 +501,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ibImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -536,8 +537,9 @@
         private System.Windows.Forms.RibbonButton ribbonButton2;
         private System.Windows.Forms.RibbonSeparator ribbonSeparator8;
         private System.Windows.Forms.RibbonButton ribbonButton11;
-        private System.Windows.Forms.Button txtImageFile;
         private System.Windows.Forms.PictureBox ibImage;
+        private System.Windows.Forms.TextBox txtImageFile;
+        private System.Windows.Forms.OpenFileDialog ofdImage;
     }
 }
 
