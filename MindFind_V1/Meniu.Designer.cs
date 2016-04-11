@@ -173,6 +173,7 @@
             this.ribbonButton2.ToolTip = null;
             this.ribbonButton2.ToolTipTitle = null;
             this.ribbonButton2.Value = null;
+            this.ribbonButton2.Click += new System.EventHandler(this.is_failo);
             // 
             // ribbonTab2
             // 
