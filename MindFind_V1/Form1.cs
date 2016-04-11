@@ -109,5 +109,10 @@ namespace MindFind_V1
             if (ofdImage.FileName != "")
                 loadAndProcessImage();
         }
+
+        private void txtImageFile_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

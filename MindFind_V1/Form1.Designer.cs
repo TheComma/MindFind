@@ -486,12 +486,13 @@
             this.txtImageFile.Size = new System.Drawing.Size(100, 20);
             this.txtImageFile.TabIndex = 3;
             this.txtImageFile.Click += new System.EventHandler(this.txtImageFile_Click);
+            this.txtImageFile.TextChanged += new System.EventHandler(this.txtImageFile_TextChanged);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1126, 919);
+            this.ClientSize = new System.Drawing.Size(1126, 733);
             this.Controls.Add(this.txtImageFile);
             this.Controls.Add(this.ibImage);
             this.Controls.Add(this.ribbon1);

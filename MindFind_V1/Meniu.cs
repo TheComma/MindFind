@@ -32,5 +32,38 @@ namespace MindFind_V1
             DataLoad f = new DataLoad();
             f.Show();
         }
+
+        private void ikelimas(object sender, EventArgs e)
+        {
+
+            OpenFileDialog ff = new OpenFileDialog();
+            ff.Title = "Pasirinkite kelis variantus";
+            ff.Multiselect = true;
+            ff.Filter = "JPG|*.jpg|JPEG|*.jpeg|GIF|*.gif|PNG|*.png";
+            DialogResult rez = ff.ShowDialog();
+            if (rez == System.Windows.Forms.DialogResult.OK)
+            {
+                string[] failai = ff.FileNames;
+                int x = 20;
+                int y = 20;
+                int maxHeight = -1;
+                foreach(string img in failai)
+                {
+                    PictureBox pav = new PictureBox();
+                    pav.Image = Image.FromFile(img);
+                    pav.Location = new Point(x, y);
+                    pav.SizeMode = PictureBoxSizeMode.CenterImage;
+                    x += pav.Width + 10;
+                    maxHeight = Math.Max(pav.Height, maxHeight);
+                    if (x > this.ClientSize.Width - 100)
+                    {
+                        x = 20;
+                        y += maxHeight + 10;
+                    }
+                    this.panel1.Controls.Add(pav);
+                }
+            }
+
+        }
     }
 }
