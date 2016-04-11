@@ -60,7 +60,7 @@ namespace MindFind_V1
                     MessageBox.Show("Failas nėra nuotrauka");
             }
             this.listView1.View = View.LargeIcon;
-            //img.ImageSize = new Size(64, 64);
+            img.ImageSize = new Size(64, 64);
             this.listView1.LargeImageList = img;
             for (int i = 0; i < img.Images.Count; i++)
             {
@@ -75,6 +75,11 @@ namespace MindFind_V1
         private void button2_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
