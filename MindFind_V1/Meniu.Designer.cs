@@ -149,6 +149,7 @@
             this.ribbonButton1.ToolTip = null;
             this.ribbonButton1.ToolTipTitle = null;
             this.ribbonButton1.Value = null;
+            this.ribbonButton1.Click += new System.EventHandler(this.click_event);
             // 
             // ribbonSeparator1
             // 

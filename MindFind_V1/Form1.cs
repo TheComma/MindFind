@@ -30,7 +30,8 @@ namespace MindFind_V1
 
         Image<Bgr, Byte> imgOriginal;
         Image<Gray, Byte> imgGray;
-        Image<Bgr, Byte> imgBlank;
+        //Image<Bgr, Byte> imgBlank;
+        public static string ft = null;
 
         private static readonly CascadeClassifier hcFaceDetector = new CascadeClassifier("haarcascade_frontalface_default.xml");
         private static readonly CascadeClassifier hcEyeDetector = new CascadeClassifier("haarcascade_eye.xml");
@@ -43,18 +44,19 @@ namespace MindFind_V1
         TimeSpan tsTimeSpan;
         string strElapsedTime = "";
         */
-       
+
         private void loadAndProcessImage()
         {
-            imgOriginal = new Image<Bgr, byte>(txtImageFile.Text);
-            imgGray = imgOriginal.Convert<Gray, Byte>();
-            Application.DoEvents();
-            swStopWatch.Start();
+
+                imgOriginal = new Image<Bgr, byte>(ft);
+                imgGray = imgOriginal.Convert<Gray, Byte>();
+                Application.DoEvents();
+                swStopWatch.Start();
 
 
 
-  
-        
+
+
                 var acFaces = hcFaceDetector.DetectMultiScale(imgGray, 1.1, 10, Size.Empty);
                 var acEyes = hcEyeDetector.DetectMultiScale(imgGray, 1.1, 25, Size.Empty);
                 foreach (var acFace in acFaces)
@@ -66,8 +68,9 @@ namespace MindFind_V1
                     imgOriginal.Draw(acEye, new Bgr(Color.Blue), 2);
                 }
 
-            System.Drawing.Image imgOrg = imgOriginal.ToBitmap();
-            ibImage.Image = imgOrg;
+                System.Drawing.Image imgOrg = imgOriginal.ToBitmap();
+                ibImage.Image = imgOrg;
+
 
            
             //stopwatch, jei norėsim kažkur įterpt per kiek laiko aptinka mordą
@@ -89,6 +92,11 @@ namespace MindFind_V1
             dad.Show();
         }
 
+        public Form1(string img)
+        {
+            ft = img;
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -104,7 +112,7 @@ namespace MindFind_V1
             DialogResult drImageFile;
 
             drImageFile = ofdImage.ShowDialog();
-            txtImageFile.Text = ofdImage.FileName;
+            ft = ofdImage.FileName;
 
             if (ofdImage.FileName != "")
                 loadAndProcessImage();

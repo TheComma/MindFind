@@ -12,6 +12,7 @@ namespace MindFind_V1
 {
     public partial class Meniu : Form
     {
+        List<string> refs;
         public Meniu()
         {
             InitializeComponent();
@@ -29,8 +30,32 @@ namespace MindFind_V1
 
         private void is_failo(object sender, EventArgs e)
         {
-            DataLoad f = new DataLoad();
-            f.Show();
+            using (var form = new DataLoad())
+            {
+                var result = form.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    refs = form.realrefs;
+                    int x = 20;
+                    int y = 20;
+                    int maxHeight = -1;
+                    foreach (string img in refs)
+                    {
+                        PictureBox pav = new PictureBox();
+                        pav.Image = Image.FromFile(img);
+                        pav.Location = new Point(x, y);
+                        pav.SizeMode = PictureBoxSizeMode.CenterImage;
+                        x += pav.Width + 10;
+                        maxHeight = Math.Max(pav.Height, maxHeight);
+                        if (x > this.ClientSize.Width - 100)
+                        {
+                            x = 20;
+                            y += maxHeight + 10;
+                        }
+                        this.panel1.Controls.Add(pav);
+                    }
+                }
+            }
         }
 
         private void ikelimas(object sender, EventArgs e)
@@ -64,6 +89,12 @@ namespace MindFind_V1
                 }
             }
 
+        }
+
+        private void click_event(object sender, EventArgs e)
+        {
+            Form1 f = new Form1();
+            f.ShowDialog();
         }
     }
 }

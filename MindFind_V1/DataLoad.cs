@@ -12,6 +12,7 @@ namespace MindFind_V1
 {
     public partial class DataLoad : Form
     {
+        public List<string> realrefs = new List<string>();
         public DataLoad()
         {
             InitializeComponent();
@@ -55,7 +56,10 @@ namespace MindFind_V1
             foreach (string i in reflist)
             {
                 if (IsRecognisedImageFile(i))
+                {
                     img.Images.Add(Image.FromFile(i));
+                    realrefs.Add(i);
+                }
                 else
                     MessageBox.Show("Failas nėra nuotrauka");
             }
@@ -75,11 +79,20 @@ namespace MindFind_V1
         private void button2_Click(object sender, EventArgs e)
         {
             listView1.Items.Clear();
+            realrefs.Clear();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Close();
+            if (radioButton2.Checked)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            if (radioButton1.Checked)
+            {
+                //Agnei užklausą reikia čia parašyti. viskas saugoma realrefs liste.
+            }
         }
     }
 }
