@@ -10,18 +10,13 @@
 namespace MindFind_V1
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Tag
+    public partial class sp_helpdiagrams_Result
     {
-        public Tag()
-        {
-            this.Photos = new HashSet<Photo>();
-        }
-    
-        public int Tag_id { get; set; }
+        public string Database { get; set; }
         public string Name { get; set; }
-    
-        public virtual ICollection<Photo> Photos { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }
