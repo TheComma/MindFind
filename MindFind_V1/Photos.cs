@@ -10,10 +10,14 @@
 namespace MindFind_V1
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class sp_helpdiagramdefinition_Result
+    public partial class Photos
     {
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int Photo_id { get; set; }
+        public Nullable<int> Tag_id { get; set; }
+        public string ImagePath { get; set; }
+    
+        public virtual Tags Tags { get; set; }
     }
 }
