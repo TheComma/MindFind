@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -92,7 +94,52 @@ namespace MindFind_V1
             if (radioButton1.Checked)
             {
                 //Agnei užklausą reikia čia parašyti. viskas saugoma realrefs liste.
+                using(var db = new MindFind_DBEntities())
+                {
+                    string name = textBox1.Text;
+
+                    Tags t = new Tags();
+                    t.Name = name;
+                    db.Tags.Add(t);
+                    db.SaveChanges();
+
+                    foreach (string sourcePath in realrefs)
+                    {
+                        var fileName1 = Path.GetFileName(sourcePath);
+                        string fileNameNew = String.Format("{0}_{1}", DateTime.Now.Millisecond, fileName1);
+                        Image original = Image.FromFile(sourcePath);
+                        string currentDirectory = Directory.GetCurrentDirectory();
+                        string savePath = currentDirectory+"\\Nuotraukos\\" + fileNameNew;
+
+                        using (MemoryStream memory = new MemoryStream())
+                        {
+                            using (FileStream fs = new FileStream(savePath, FileMode.Create, FileAccess.ReadWrite))
+                            {
+                                original.Save(memory, ImageFormat.Jpeg);
+                                byte[] bytes = memory.ToArray();
+                                fs.Write(bytes, 0, bytes.Length);
+                            }
+                        }
+
+                        Photos ph = new Photos();
+                        ph.Tag_id = t.Tag_id;
+                        ph.ImagePath = savePath;
+
+                        db.Photos.Add(ph);
+                        db.SaveChanges();
+
+                    }
+
+
+                }
+                this.Close();
+
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

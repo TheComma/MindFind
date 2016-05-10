@@ -62,6 +62,8 @@
             this.ibImage = new System.Windows.Forms.PictureBox();
             this.txtImageFile = new System.Windows.Forms.TextBox();
             this.ofdImage = new System.Windows.Forms.OpenFileDialog();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbFounded = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ibImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -488,11 +490,27 @@
             this.txtImageFile.Click += new System.EventHandler(this.txtImageFile_Click);
             this.txtImageFile.TextChanged += new System.EventHandler(this.txtImageFile_TextChanged);
             // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(494, 77);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(100, 20);
+            this.tbName.TabIndex = 4;
+            // 
+            // tbFounded
+            // 
+            this.tbFounded.Location = new System.Drawing.Point(802, 77);
+            this.tbFounded.Name = "tbFounded";
+            this.tbFounded.Size = new System.Drawing.Size(100, 20);
+            this.tbFounded.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 733);
+            this.Controls.Add(this.tbFounded);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.txtImageFile);
             this.Controls.Add(this.ibImage);
             this.Controls.Add(this.ribbon1);
@@ -541,6 +559,8 @@
         private System.Windows.Forms.PictureBox ibImage;
         private System.Windows.Forms.TextBox txtImageFile;
         private System.Windows.Forms.OpenFileDialog ofdImage;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.TextBox tbFounded;
     }
 }
 

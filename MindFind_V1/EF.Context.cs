@@ -13,10 +13,10 @@ namespace MindFind_V1
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MindFindEntities : DbContext
+    public partial class MindFind_DBEntities : DbContext
     {
-        public MindFindEntities()
-            : base("name=MindFindEntities")
+        public MindFind_DBEntities()
+            : base("name=MindFind_DBEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace MindFind_V1
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Photo> Photos { get; set; }
-        public virtual DbSet<Tag> Tags { get; set; }
+        public virtual DbSet<Tags> Tags { get; set; }
+        public virtual DbSet<Photos> Photos { get; set; }
     }
 }

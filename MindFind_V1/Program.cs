@@ -16,7 +16,7 @@ namespace MindFind_V1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Meniu());
+            Application.Run(new Form1());// Meniu());
         }
     }
 }

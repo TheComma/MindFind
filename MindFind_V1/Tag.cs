@@ -21,6 +21,7 @@ namespace MindFind_V1
     
         public int Tag_id { get; set; }
         public string Name { get; set; }
+        public string Data { get; set; }
     
         public virtual ICollection<Photo> Photos { get; set; }
     }
