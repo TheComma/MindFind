@@ -114,6 +114,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EF.edmx</DependentUpon>
     </Compile>
+    <Compile Include="EigenObjectRecognizer.cs" />
     <Compile Include="Emgu.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
