@@ -125,7 +125,22 @@ namespace MindFind_V1
 
                 var acFaces = hcFaceDetector.DetectMultiScale(imgGray, 1.1, 10, Size.Empty);
                 var acEyes = hcEyeDetector.DetectMultiScale(imgGray, 1.1, 25, Size.Empty);
-                foreach (var acFace in acFaces)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            foreach (var acFace in acFaces)
                 {
 
 
@@ -137,7 +152,8 @@ namespace MindFind_V1
                 result = imgOriginal.Copy(acFace).Convert<Gray, byte>().Resize(10, Inter.Cubic);//currentFrame.Copy(acFace).Convert<Gray, byte>().Resize(100, 100, Inter.Cubic);//, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
 
 
-
+                trainingImages.Add(result);
+                labels.Add(tbName.Text);
 
 
 
@@ -149,29 +165,38 @@ namespace MindFind_V1
 
 
                 */
-                
+
                 imgOriginal.Draw(acFace, new Bgr(Color.Red), 2);
 
                 if (trainingImages.ToArray().Length != 0)
                 {
                     MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
-
+                    /*
                     EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
                     trainingImages.ToArray(),
                     labels.ToArray(),
                     3000,
-                    ref termCrit);
+                    ref termCrit);*/
+                    
 
-
-                    name = recognizer.Recognize(result);
+                 //   name = recognizer.Recognize(result);
 
                     tbFounded.Text = name;
                     //currentFrame.Draw(name, ref font, new Point(acFace.X - 2/*.rect.X - 2*/, acFace.Y - 2/*.rect.Y - 2*/), new Bgr(Color.LightGreen));
 
                 }
 
-                
 
+                File.WriteAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", trainingImages.ToArray().Length.ToString() + "%");
+
+                //Write the labels of triained faces in a file text for further load
+                for (int i = 1; i < trainingImages.ToArray().Length + 1; i++)
+                {
+                    trainingImages.ToArray()[i - 1].Save(Application.StartupPath + "/TrainedFaces/face" + i + ".bmp");
+                    File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
+                }
+
+                MessageBox.Show(tbFounded.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 

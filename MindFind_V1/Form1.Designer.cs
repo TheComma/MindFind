@@ -499,7 +499,7 @@
             // 
             // tbFounded
             // 
-            this.tbFounded.Location = new System.Drawing.Point(802, 77);
+            this.tbFounded.Location = new System.Drawing.Point(710, 77);
             this.tbFounded.Name = "tbFounded";
             this.tbFounded.Size = new System.Drawing.Size(100, 20);
             this.tbFounded.TabIndex = 5;
