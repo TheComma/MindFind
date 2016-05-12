@@ -190,11 +190,17 @@
     <None Include="ikonos\Illustration-icon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="opencv_ffmpeg310_64.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="ikonos\Zoom-In-icon.png" />
     <None Include="ikonos\Zoom-Out-icon.png" />
     <None Include="ikonos\Search-Images-icon.png" />
     <None Include="ikonos\picture-search-icon.png" />
     <None Include="ikonos\Trash-empty-icon.png" />
+    <Content Include="cvextern.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="EF.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EF.edmx</DependentUpon>
@@ -205,6 +211,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EF.edmx</DependentUpon>
       <LastGenOutput>EF.cs</LastGenOutput>
+    </Content>
+    <Content Include="msvcp120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcr120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="opencv_ffmpeg310.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

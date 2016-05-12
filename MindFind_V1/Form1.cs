@@ -330,10 +330,6 @@ namespace MindFind_V1
         public Form1()
         {
             InitializeComponent();
-            DataLoad dad = new DataLoad();
-            dad.Show();
-
-
             //InitializeComponent();
             //Load haarcascades for face detection
             //face = new HaarCascade("haarcascade_frontalface_default.xml");
