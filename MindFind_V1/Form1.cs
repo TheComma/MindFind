@@ -15,6 +15,8 @@ using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
 using Emgu.CV.UI;
 using System.Diagnostics;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace MindFind_V1
 {
@@ -31,21 +33,21 @@ namespace MindFind_V1
 
         Image<Bgr, Byte> imgOriginal;
         Image<Gray, Byte> imgGray;
+        System.Drawing.Image imgOrg;
 
-        
-        
-        
+
+
         //Image<Bgr, Byte> imgBlank;
         public static string ft = null;
 
         private static readonly CascadeClassifier hcFaceDetector = new CascadeClassifier("haarcascade_frontalface_default.xml");
-        private static readonly CascadeClassifier hcEyeDetector = new CascadeClassifier("haarcascade_eye.xml");
+        //private static readonly CascadeClassifier hcEyeDetector = new CascadeClassifier("haarcascade_eye.xml");
 
         // MCvFont font = new MCvFont(FONT.CV_FONT_HERSHEY_TRIPLEX, 0.5d, 0.5d);
-        string font;
-        Image<Bgr, Byte> currentFrame;
-        Capture grabber;
-        
+        //   string font;
+        // Image<Bgr, Byte> currentFrame;
+        // Capture grabber;
+
         //nuotrauka, kuri eina i folderi
         Image<Gray, byte> result, TrainedFace = null;
 
@@ -55,6 +57,9 @@ namespace MindFind_V1
         List<string> NamePersons = new List<string>();
         int ContTrain, NumLabels, t;
         string name, names = null;
+
+
+
 
 
 
@@ -124,7 +129,7 @@ namespace MindFind_V1
 
 
                 var acFaces = hcFaceDetector.DetectMultiScale(imgGray, 1.1, 10, Size.Empty);
-                var acEyes = hcEyeDetector.DetectMultiScale(imgGray, 1.1, 25, Size.Empty);
+               // var acEyes = hcEyeDetector.DetectMultiScale(imgGray, 1.1, 25, Size.Empty);
 
 
 
@@ -196,131 +201,24 @@ namespace MindFind_V1
                     File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
                 }
 
-                MessageBox.Show(tbFounded.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show(tbFounded.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
 
             }
+            /*
                 foreach (var acEye in acEyes)
                 {
                     imgOriginal.Draw(acEye, new Bgr(Color.Blue), 2);
-                }
+                }*/
 
-            System.Drawing.Image imgOrg = imgOriginal.ToBitmap();//imgOriginal.ToBitmap();
+            imgOrg = imgOriginal.ToBitmap();//imgOriginal.ToBitmap();
+            //imgOrg = ResizeImage(imgOrg, imgOrg.Width / 2, imgOrg.Height / 2);
             ibImage.Image = imgOrg;
-
-
-
-
-
-
-
-
-
-
-            //label3.Text = "0";
-            //label4.Text = "";
             NamePersons.Add("");
 
 
-            //Get the current frame form capture device
-           // currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-
-            //Convert it to Grayscale
-            //gray = currentFrame.Convert<Gray, Byte>();
-
-            //Face Detector
-            /*MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
-          face,
-          1.2,
-          10,
-          Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
-          new Size(20, 20));
-          */
-            //Action for each element detected
-            /*foreach (MCvAvgComp f in facesDetected[0])
-            {
-                t = t + 1;
-                result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-                //draw the face detected in the 0th (gray) channel with blue color
-                currentFrame.Draw(f.rect, new Bgr(Color.Red), 2);
-
-
-                if (trainingImages.ToArray().Length != 0)
-                {
-                    //TermCriteria for face recognition with numbers of trained images like maxIteration
-                    MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
-
-                    //Eigen face recognizer
-                    EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
-                       trainingImages.ToArray(),
-                       labels.ToArray(),
-                       3000,
-                       ref termCrit);
-
-                    name = recognizer.Recognize(result);
-
-                    //Draw the label for each face detected and recognized
-                    currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.LightGreen));
-
-                }
-
-                NamePersons[t - 1] = name;
-                NamePersons.Add("");
-
-
-                //Set the number of faces detected on the scene
-                label3.Text = facesDetected[0].Length.ToString();
-
-                /*
-                //Set the region of interest on the faces
-
-                gray.ROI = f.rect;
-                MCvAvgComp[][] eyesDetected = gray.DetectHaarCascade(
-                   eye,
-                   1.1,
-                   10,
-                   Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
-                   new Size(20, 20));
-                gray.ROI = Rectangle.Empty;
-
-                foreach (MCvAvgComp ey in eyesDetected[0])
-                {
-                    Rectangle eyeRect = ey.rect;
-                    eyeRect.Offset(f.rect.X, f.rect.Y);
-                    currentFrame.Draw(eyeRect, new Bgr(Color.Blue), 2);
-                }
-                 */
-
-        /*    }
-            t = 0;
-
-            //Names concatenation of persons recognized
-            for (int nnn = 0; nnn < facesDetected[0].Length; nnn++)
-            {
-                names = names + NamePersons[nnn] + ", ";
-            }
-            //Show the faces procesed and recognized
-            imageBoxFrameGrabber.Image = currentFrame;
-            label4.Text = names;
-            names = "";
-            //Clear the list(vector) of names
-            NamePersons.Clear();
-
-
-
-
-
-
-
-
-            //stopwatch, jei norėsim kažkur įterpt per kiek laiko aptinka mordą
-            /*  
-              swStopWatch.Stop();
-              tsTimeSpan = swStopWatch.Elapsed;
-              strElapsedTime = string.Format("processing time = {0:00}.{1:00} sec", tsTimeSpan.Seconds, tsTimeSpan.Milliseconds / 10);
-              swStopWatch.Reset();*/
         }
 
 
@@ -369,6 +267,33 @@ namespace MindFind_V1
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        double i = 1;
+        private void ribbonButton7_Click(object sender, EventArgs e)
+        {
+            i += 0.1;
+            Size newSize = new Size((int)(imgOrg.Width * i), (int)(imgOrg.Height * i));
+            Bitmap bmp = new Bitmap(imgOrg, newSize);
+
+            //imgOrg = bmp;
+            ibImage.Image = bmp;
+
+
+
+
+        }
+
+        private void ribbonButton8_Click(object sender, EventArgs e)
+        {
+
+            i -= 0.1;
+
+            Size newSize = new Size((int)(imgOrg.Width * i), (int)(imgOrg.Height * i));
+            Bitmap bmp = new Bitmap(imgOrg, newSize);
+
+            //imgOrg = bmp;
+            ibImage.Image = bmp;
         }
 
         private void Form1_Load(object sender, EventArgs e)
