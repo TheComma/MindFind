@@ -88,6 +88,7 @@ namespace MindFind_V1
 
                 using (var db = new MindFind_DBEntities())
                 {
+                    int lastid;
                     string name = tbName.Text;
                     Tags t = new Tags();
                     if (db.Tags.Where(x => x.Name == name).FirstOrDefault() == null)
@@ -95,57 +96,28 @@ namespace MindFind_V1
                         t.Name = name;
                         db.Tags.Add(t);
                         db.SaveChanges();
+                        lastid = 0;
                     }
                     else
                     {
                         t = db.Tags.Where(x => x.Name == name).FirstOrDefault();
+                        lastid = (int)db.Photos.Where(x => x.Tag_id == t.Tag_id).Count();
                     }
-                        List<string> listas = new List<string>();
-                        foreach (Image<Gray, byte> imgas in trainingImages)
-                        {
-                            listas.Add(imgas.ToString());
-                        }
-
-                        foreach (string sourcePath in listas)
-                        {
-                            var fileName1 = Path.GetFileName(sourcePath);
-                            string fileNameNew = String.Format("{0}_{1}", DateTime.Now.Millisecond, fileName1);
-                            Image original = Image.FromFile(sourcePath);
-                            string currentDirectory = Directory.GetCurrentDirectory();
-
-                            // Specify the directory you want to manipulate.
-                            string path = currentDirectory + "\\Nuotraukos\\";
-
-                            // Determine whether the directory exists.
-                            if (Directory.Exists(path))
-                            {
-                                Console.WriteLine("That path exists already.");
-                            }
-                            // Try to create the directory.
-                            Directory.CreateDirectory(currentDirectory + "\\Nuotraukos\\");
-
-                            string savePath = currentDirectory + "\\Nuotraukos\\" + fileNameNew;
-
-                            using (MemoryStream memory = new MemoryStream())
-                            {
-                                using (FileStream fs = new FileStream(savePath, FileMode.Create, FileAccess.ReadWrite))
-                                {
-                                    original.Save(memory, ImageFormat.Jpeg);
-                                    byte[] bytes = memory.ToArray();
-                                    fs.Write(bytes, 0, bytes.Length);
-                                }
-                            }
-
-                            Photos ph = new Photos();
-                            ph.Tags = t;
-                            ph.ImagePath = savePath;
-
-                            db.Photos.Add(ph);
+                    for (int i = 1; i < trainingImages.ToArray().Length + 1; i++)
+                    {
+                        int index = i + lastid;
+                        trainingImages.ToArray()[i - 1].Save(Application.StartupPath + "/TrainedFaces/"+ t.Name + index + ".bmp");
+                        string savePath = Application.StartupPath + "/TrainedFaces/" + t.Name + index + ".bmp";
+                        Photos ph = new Photos();
+                        ph.Tags = t;
+                        ph.ImagePath = savePath;
+                        db.Photos.Add(ph);
+                    }
 
                     
                     db.SaveChanges();
                 }
-            }
+            
 
                 MessageBox.Show(tbName.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -186,7 +158,7 @@ namespace MindFind_V1
                 for (int tf = 1; tf < NumLabels + 1; tf++)
                 {
                     LoadFaces = "face" + tf + ".bmp";
-                    trainingImages.Add(new Image<Gray, byte>(Application.StartupPath + "/TrainedFaces/" + LoadFaces));
+                    trainingImages.Add(new Image<Gray, byte>(Application.StartupPath + "/Nuotraukos/" + LoadFaces));
                     labels.Add(Labels[tf]);
                 }
 
