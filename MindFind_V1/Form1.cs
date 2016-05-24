@@ -86,19 +86,68 @@ namespace MindFind_V1
                     MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
                     }
 
-
-                File.WriteAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", trainingImages.ToArray().Length.ToString() + "%");
-
-                //Write the labels of triained faces in a file text for further load
-                for (int i = 1; i < trainingImages.ToArray().Length + 1; i++)
+                using (var db = new MindFind_DBEntities())
                 {
-                    trainingImages.ToArray()[i - 1].Save(Application.StartupPath + "/TrainedFaces/face" + i + ".bmp");
-                    File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
+                    string name = tbName.Text;
+                    Tags t = new Tags();
+                    if (db.Tags.Where(x => x.Name == name).FirstOrDefault() == null)
+                    {
+                        t.Name = name;
+                        db.Tags.Add(t);
+                        db.SaveChanges();
+                    }
+                    else
+                    {
+                        t = db.Tags.Where(x => x.Name == name).FirstOrDefault();
+                    }
+                        List<string> listas = new List<string>();
+                        foreach (Image<Gray, byte> imgas in trainingImages)
+                        {
+                            listas.Add(imgas.ToString());
+                        }
+
+                        foreach (string sourcePath in listas)
+                        {
+                            var fileName1 = Path.GetFileName(sourcePath);
+                            string fileNameNew = String.Format("{0}_{1}", DateTime.Now.Millisecond, fileName1);
+                            Image original = Image.FromFile(sourcePath);
+                            string currentDirectory = Directory.GetCurrentDirectory();
+
+                            // Specify the directory you want to manipulate.
+                            string path = currentDirectory + "\\Nuotraukos\\";
+
+                            // Determine whether the directory exists.
+                            if (Directory.Exists(path))
+                            {
+                                Console.WriteLine("That path exists already.");
+                            }
+                            // Try to create the directory.
+                            Directory.CreateDirectory(currentDirectory + "\\Nuotraukos\\");
+
+                            string savePath = currentDirectory + "\\Nuotraukos\\" + fileNameNew;
+
+                            using (MemoryStream memory = new MemoryStream())
+                            {
+                                using (FileStream fs = new FileStream(savePath, FileMode.Create, FileAccess.ReadWrite))
+                                {
+                                    original.Save(memory, ImageFormat.Jpeg);
+                                    byte[] bytes = memory.ToArray();
+                                    fs.Write(bytes, 0, bytes.Length);
+                                }
+                            }
+
+                            Photos ph = new Photos();
+                            ph.Tags = t;
+                            ph.ImagePath = savePath;
+
+                            db.Photos.Add(ph);
+
+                    
+                    db.SaveChanges();
                 }
+            }
 
                 MessageBox.Show(tbName.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
 
 
             }
@@ -226,6 +275,11 @@ namespace MindFind_V1
         }
 
         private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbName_TextChanged(object sender, EventArgs e)
         {
 
         }

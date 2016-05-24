@@ -26,7 +26,6 @@ namespace MindFind_V1
 
 
 
-
         }
 
         private void Meniu_Load(object sender, EventArgs e)
