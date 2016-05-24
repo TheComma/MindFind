@@ -98,6 +98,7 @@ namespace MindFind_V1
                 {
                     string name = textBox1.Text;
 
+
                     Tags t = new Tags();
                     t.Name = name;
                     db.Tags.Add(t);
@@ -109,6 +110,18 @@ namespace MindFind_V1
                         string fileNameNew = String.Format("{0}_{1}", DateTime.Now.Millisecond, fileName1);
                         Image original = Image.FromFile(sourcePath);
                         string currentDirectory = Directory.GetCurrentDirectory();
+
+                        // Specify the directory you want to manipulate.
+                        string path = currentDirectory + "\\Nuotraukos\\";
+
+                             // Determine whether the directory exists.
+                             if (Directory.Exists(path))
+                             {
+                                 Console.WriteLine("That path exists already.");
+                             }
+                             // Try to create the directory.
+                             Directory.CreateDirectory(currentDirectory + "\\Nuotraukos\\");
+
                         string savePath = currentDirectory+"\\Nuotraukos\\" + fileNameNew;
 
                         using (MemoryStream memory = new MemoryStream())
