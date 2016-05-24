@@ -61,58 +61,30 @@ namespace MindFind_V1
         Stopwatch swStopWatch = new Stopwatch();
         private void loadAndProcessImage()
         {
-
-
-
                 imgOriginal = new Image<Bgr, byte>(ft);
                 imgGray = imgOriginal.Convert<Gray, Byte>();
                 Application.DoEvents();
                 swStopWatch.Start();
 
-
-
-
-
                 var acFaces = hcFaceDetector.DetectMultiScale(imgGray, 1.1, 10, Size.Empty);
                // var acEyes = hcEyeDetector.DetectMultiScale(imgGray, 1.1, 25, Size.Empty);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            foreach (var acFace in acFaces)
-                {
-
-
-
-                t = t + 1;
+                foreach (var acFace in acFaces) {
+                    t = t + 1;
 
 
                 //--------------------veidas-------------------------------------------------------
-                result = imgOriginal.Copy(acFace).Convert<Gray, byte>().Resize(10, Inter.Cubic);
+                    result = imgOriginal.Copy(acFace).Convert<Gray, byte>().Resize(10, Inter.Cubic);
 
 
-                trainingImages.Add(result);
-                labels.Add(tbName.Text);
+                    trainingImages.Add(result);
+                    labels.Add(tbName.Text);
 
-                imgOriginal.Draw(acFace, new Bgr(Color.Red), 2);
+                    imgOriginal.Draw(acFace, new Bgr(Color.Red), 2);
 
-                if (trainingImages.ToArray().Length != 0)
-                {
+                    if (trainingImages.ToArray().Length != 0){
                     MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
-
-
-                }
+                    }
 
 
                 File.WriteAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", trainingImages.ToArray().Length.ToString() + "%");
@@ -146,8 +118,6 @@ namespace MindFind_V1
 
 
 
-
-
         public Form1()
         {
             InitializeComponent();
@@ -178,8 +148,6 @@ namespace MindFind_V1
                 MessageBox.Show("Nothing in binary database, please add at least a face(Simply train the prototype with the Add Face Button).", "Triained faces load", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
-
-
         }
 
         public Form1(string img)
@@ -202,9 +170,6 @@ namespace MindFind_V1
             //imgOrg = bmp;
             ibImage.Image = bmp;
 
-
-
-
         }
 
         private void ribbonButton8_Click(object sender, EventArgs e)
@@ -222,13 +187,8 @@ namespace MindFind_V1
         private void ribbonButton2_Click(object sender, EventArgs e)
         {
 
-
             if (ofdImage.FileName != "")
                 loadAndProcessImage();
-
-
-
-
         }
 
     

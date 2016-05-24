@@ -40,7 +40,9 @@
             this.ribbonTab2 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel2 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // ribbon1
@@ -206,20 +208,40 @@
             this.ribbonButton5.ToolTipTitle = null;
             this.ribbonButton5.Value = null;
             // 
-            // panel1
+            // comboBox1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 142);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(938, 325);
-            this.panel1.TabIndex = 1;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(113, 56);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(113, 84);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Display";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(12, 148);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(914, 307);
+            this.listView2.TabIndex = 4;
+            this.listView2.UseCompatibleStateImageBehavior = false;
             // 
             // Meniu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(938, 467);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ribbon1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Meniu";
@@ -242,6 +264,9 @@
         private System.Windows.Forms.RibbonTab ribbonTab2;
         private System.Windows.Forms.RibbonPanel ribbonPanel2;
         private System.Windows.Forms.RibbonButton ribbonButton5;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private BrightIdeasSoftware.ObjectListView listView1;
+        private System.Windows.Forms.ListView listView2;
     }
 }
