@@ -35,15 +35,12 @@
             this.ribbonTab3 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel3 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton5 = new System.Windows.Forms.RibbonButton();
-            this.ribbonSeparator3 = new System.Windows.Forms.RibbonSeparator();
-            this.ribbonButton6 = new System.Windows.Forms.RibbonButton();
             this.ribbonPanel4 = new System.Windows.Forms.RibbonPanel();
             this.ribbonButton7 = new System.Windows.Forms.RibbonButton();
             this.ribbonSeparator4 = new System.Windows.Forms.RibbonSeparator();
             this.ribbonButton8 = new System.Windows.Forms.RibbonButton();
             this.ribbonTab4 = new System.Windows.Forms.RibbonTab();
             this.ribbonPanel5 = new System.Windows.Forms.RibbonPanel();
-            this.ribbonButton9 = new System.Windows.Forms.RibbonButton();
             this.ribbonSeparator5 = new System.Windows.Forms.RibbonSeparator();
             this.ribbonButton10 = new System.Windows.Forms.RibbonButton();
             this.ribbonSeparator1 = new System.Windows.Forms.RibbonSeparator();
@@ -60,9 +57,9 @@
             this.ribbonButton4 = new System.Windows.Forms.RibbonButton();
             this.ribbonButton3 = new System.Windows.Forms.RibbonButton();
             this.ibImage = new System.Windows.Forms.PictureBox();
-            this.txtImageFile = new System.Windows.Forms.TextBox();
             this.ofdImage = new System.Windows.Forms.OpenFileDialog();
             this.tbName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ibImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,8 +145,6 @@
             // ribbonPanel3
             // 
             this.ribbonPanel3.Items.Add(this.ribbonButton5);
-            this.ribbonPanel3.Items.Add(this.ribbonSeparator3);
-            this.ribbonPanel3.Items.Add(this.ribbonButton6);
             this.ribbonPanel3.Tag = null;
             this.ribbonPanel3.Text = "Navigacija";
             // 
@@ -167,32 +162,7 @@
             this.ribbonButton5.ToolTip = null;
             this.ribbonButton5.ToolTipTitle = null;
             this.ribbonButton5.Value = null;
-            // 
-            // ribbonSeparator3
-            // 
-            this.ribbonSeparator3.AltKey = null;
-            this.ribbonSeparator3.CheckedGroup = null;
-            this.ribbonSeparator3.Image = null;
-            this.ribbonSeparator3.Tag = null;
-            this.ribbonSeparator3.Text = null;
-            this.ribbonSeparator3.ToolTip = null;
-            this.ribbonSeparator3.ToolTipTitle = null;
-            this.ribbonSeparator3.Value = null;
-            // 
-            // ribbonButton6
-            // 
-            this.ribbonButton6.AltKey = null;
-            this.ribbonButton6.CheckedGroup = null;
-            this.ribbonButton6.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
-            this.ribbonButton6.DropDownArrowSize = new System.Drawing.Size(5, 3);
-            this.ribbonButton6.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.Image")));
-            this.ribbonButton6.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton6.SmallImage")));
-            this.ribbonButton6.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
-            this.ribbonButton6.Tag = null;
-            this.ribbonButton6.Text = "Pirmyn";
-            this.ribbonButton6.ToolTip = null;
-            this.ribbonButton6.ToolTipTitle = null;
-            this.ribbonButton6.Value = null;
+            this.ribbonButton5.Click += new System.EventHandler(this.ribbonButton5_Click);
             // 
             // ribbonPanel4
             // 
@@ -258,7 +228,6 @@
             // 
             // ribbonPanel5
             // 
-            this.ribbonPanel5.Items.Add(this.ribbonButton9);
             this.ribbonPanel5.Items.Add(this.ribbonSeparator5);
             this.ribbonPanel5.Items.Add(this.ribbonButton10);
             this.ribbonPanel5.Items.Add(this.ribbonSeparator7);
@@ -267,21 +236,6 @@
             this.ribbonPanel5.Items.Add(this.ribbonButton11);
             this.ribbonPanel5.Tag = null;
             this.ribbonPanel5.Text = "Veiksmai";
-            // 
-            // ribbonButton9
-            // 
-            this.ribbonButton9.AltKey = null;
-            this.ribbonButton9.CheckedGroup = null;
-            this.ribbonButton9.DropDownArrowDirection = System.Windows.Forms.RibbonArrowDirection.Down;
-            this.ribbonButton9.DropDownArrowSize = new System.Drawing.Size(5, 3);
-            this.ribbonButton9.Image = ((System.Drawing.Image)(resources.GetObject("ribbonButton9.Image")));
-            this.ribbonButton9.SmallImage = ((System.Drawing.Image)(resources.GetObject("ribbonButton9.SmallImage")));
-            this.ribbonButton9.Style = System.Windows.Forms.RibbonButtonStyle.Normal;
-            this.ribbonButton9.Tag = null;
-            this.ribbonButton9.Text = "Rasti";
-            this.ribbonButton9.ToolTip = null;
-            this.ribbonButton9.ToolTipTitle = null;
-            this.ribbonButton9.Value = null;
             // 
             // ribbonSeparator5
             // 
@@ -311,6 +265,7 @@
             this.ribbonButton10.ToolTip = null;
             this.ribbonButton10.ToolTipTitle = null;
             this.ribbonButton10.Value = null;
+            this.ribbonButton10.Click += new System.EventHandler(this.ribbonButton10_Click);
             // 
             // ribbonSeparator1
             // 
@@ -374,6 +329,7 @@
             this.ribbonButton2.ToolTip = null;
             this.ribbonButton2.ToolTipTitle = null;
             this.ribbonButton2.Value = null;
+            this.ribbonButton2.Click += new System.EventHandler(this.ribbonButton2_Click);
             // 
             // ribbonSeparator8
             // 
@@ -400,6 +356,7 @@
             this.ribbonButton11.ToolTip = null;
             this.ribbonButton11.ToolTipTitle = null;
             this.ribbonButton11.Value = null;
+            this.ribbonButton11.Click += new System.EventHandler(this.ribbonButton11_Click);
             // 
             // ribbonPanel2
             // 
@@ -482,29 +439,31 @@
             this.ibImage.TabStop = false;
             this.ibImage.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // txtImageFile
-            // 
-            this.txtImageFile.Location = new System.Drawing.Point(333, 77);
-            this.txtImageFile.Name = "txtImageFile";
-            this.txtImageFile.Size = new System.Drawing.Size(100, 20);
-            this.txtImageFile.TabIndex = 3;
-            this.txtImageFile.Click += new System.EventHandler(this.txtImageFile_Click);
-            this.txtImageFile.TextChanged += new System.EventHandler(this.txtImageFile_TextChanged);
-            // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(494, 77);
+            this.tbName.Location = new System.Drawing.Point(967, 107);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(100, 20);
+            this.tbName.Size = new System.Drawing.Size(138, 20);
             this.tbName.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label1.Location = new System.Drawing.Point(973, 88);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(116, 16);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Įvardinkite asmenį";
+            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1126, 733);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.tbName);
-            this.Controls.Add(this.txtImageFile);
             this.Controls.Add(this.ibImage);
             this.Controls.Add(this.ribbon1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -525,15 +484,12 @@
         private System.Windows.Forms.RibbonTab ribbonTab3;
         private System.Windows.Forms.RibbonPanel ribbonPanel3;
         private System.Windows.Forms.RibbonButton ribbonButton5;
-        private System.Windows.Forms.RibbonSeparator ribbonSeparator3;
-        private System.Windows.Forms.RibbonButton ribbonButton6;
         private System.Windows.Forms.RibbonPanel ribbonPanel4;
         private System.Windows.Forms.RibbonButton ribbonButton7;
         private System.Windows.Forms.RibbonSeparator ribbonSeparator4;
         private System.Windows.Forms.RibbonButton ribbonButton8;
         private System.Windows.Forms.RibbonTab ribbonTab4;
         private System.Windows.Forms.RibbonPanel ribbonPanel5;
-        private System.Windows.Forms.RibbonButton ribbonButton9;
         private System.Windows.Forms.RibbonSeparator ribbonSeparator5;
         private System.Windows.Forms.RibbonButton ribbonButton10;
         private System.Windows.Forms.RibbonOrbMenuItem ribbonOrbMenuItem1;
@@ -550,9 +506,9 @@
         private System.Windows.Forms.RibbonSeparator ribbonSeparator8;
         private System.Windows.Forms.RibbonButton ribbonButton11;
         private System.Windows.Forms.PictureBox ibImage;
-        private System.Windows.Forms.TextBox txtImageFile;
         private System.Windows.Forms.OpenFileDialog ofdImage;
         private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label label1;
     }
 }
 

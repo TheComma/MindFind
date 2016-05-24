@@ -58,62 +58,7 @@ namespace MindFind_V1
         int ContTrain, NumLabels, t;
         string name, names = null;
 
-
-
-
-
-
-
-
-
-
-
-        /*
-        public void loadFacesIfPossible()
-        {
-            
-            InitializeComponent();
-            //Load haarcascades for face detection
-            //face = new HaarCascade("haarcascade_frontalface_default.xml");
-            //eye = new HaarCascade("haarcascade_eye.xml");
-            try
-            {
-                //Load of previus trainned faces and labels for each image
-                string Labelsinfo = File.ReadAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt");
-                string[] Labels = Labelsinfo.Split('%');
-                NumLabels = Convert.ToInt16(Labels[0]);
-                ContTrain = NumLabels;
-                string LoadFaces;
-
-                for (int tf = 1; tf < NumLabels + 1; tf++)
-                {
-                    LoadFaces = "face" + tf + ".bmp";
-                    trainingImages.Add(new Image<Gray, byte>(Application.StartupPath + "/TrainedFaces/" + LoadFaces));
-                    labels.Add(Labels[tf]);
-                }
-
-            }
-            catch (Exception e)
-            {
-                //MessageBox.Show(e.ToString());
-                MessageBox.Show("Nothing in binary database, please add at least a face(Simply train the prototype with the Add Face Button).", "Triained faces load", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-        }
-
-
-            */
-
-
-
-
-        //Kintamieji, skirti stopwatch
         Stopwatch swStopWatch = new Stopwatch();
-        /*
-        TimeSpan tsTimeSpan;
-        string strElapsedTime = "";
-        */
-
         private void loadAndProcessImage()
         {
 
@@ -154,40 +99,18 @@ namespace MindFind_V1
 
 
                 //--------------------veidas-------------------------------------------------------
-                result = imgOriginal.Copy(acFace).Convert<Gray, byte>().Resize(10, Inter.Cubic);//currentFrame.Copy(acFace).Convert<Gray, byte>().Resize(100, 100, Inter.Cubic);//, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                result = imgOriginal.Copy(acFace).Convert<Gray, byte>().Resize(10, Inter.Cubic);
 
 
                 trainingImages.Add(result);
                 labels.Add(tbName.Text);
-
-
-
-
-                /*
-
-                t = t + 1;
-                result = imgOriginal.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-
-
-                */
 
                 imgOriginal.Draw(acFace, new Bgr(Color.Red), 2);
 
                 if (trainingImages.ToArray().Length != 0)
                 {
                     MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
-                    /*
-                    EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
-                    trainingImages.ToArray(),
-                    labels.ToArray(),
-                    3000,
-                    ref termCrit);*/
-                    
 
-                 //   name = recognizer.Recognize(result);
-
-                    tbFounded.Text = name;
-                    //currentFrame.Draw(name, ref font, new Point(acFace.X - 2/*.rect.X - 2*/, acFace.Y - 2/*.rect.Y - 2*/), new Bgr(Color.LightGreen));
 
                 }
 
@@ -201,7 +124,7 @@ namespace MindFind_V1
                     File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
                 }
 
-                //MessageBox.Show(tbFounded.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(tbName.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
@@ -296,6 +219,57 @@ namespace MindFind_V1
             ibImage.Image = bmp;
         }
 
+        private void ribbonButton2_Click(object sender, EventArgs e)
+        {
+
+
+            if (ofdImage.FileName != "")
+                loadAndProcessImage();
+
+
+
+
+        }
+
+    
+
+        private void ribbonButton11_Click(object sender, EventArgs e)
+        {
+            DialogResult drImageFile;
+
+            drImageFile = ofdImage.ShowDialog();
+            ft = ofdImage.FileName;
+
+
+            imgOriginal = new Image<Bgr, byte>(ft);
+
+            imgOrg = imgOriginal.ToBitmap();//imgOriginal.ToBitmap();
+            //imgOrg = ResizeImage(imgOrg, imgOrg.Width / 2, imgOrg.Height / 2);
+            ibImage.Image = imgOrg;
+        }
+
+        private void ribbonButton10_Click(object sender, EventArgs e)
+        {
+            //System.Drawing.Image imgOr;
+            imgOrg = null;
+            ibImage.Image = imgOrg;
+        }
+
+        private void ribbonButton5_Click(object sender, EventArgs e)
+        {
+            //OpenFileDialog("Meniu");
+            
+            Meniu f = new Meniu();
+            
+            f.ShowDialog();
+            Application.Exit();
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -313,8 +287,14 @@ namespace MindFind_V1
             drImageFile = ofdImage.ShowDialog();
             ft = ofdImage.FileName;
 
-            if (ofdImage.FileName != "")
-                loadAndProcessImage();
+
+            imgOriginal = new Image<Bgr, byte>(ft);
+
+            imgOrg = imgOriginal.ToBitmap();//imgOriginal.ToBitmap();
+            //imgOrg = ResizeImage(imgOrg, imgOrg.Width / 2, imgOrg.Height / 2);
+            ibImage.Image = imgOrg;
+
+
         }
 
         private void txtImageFile_TextChanged(object sender, EventArgs e)
