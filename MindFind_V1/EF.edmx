@@ -4,43 +4,44 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="MindFind_DBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="MindFind_DBModelStoreContainer">
-    <EntitySet Name="Tags" EntityType="MindFind_DBModel.Store.Tags" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Photos" EntityType="MindFind_DBModel.Store.Photos" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="FK_Photos_Tags" Association="MindFind_DBModel.Store.FK_Photos_Tags">
-      <End Role="Tags" EntitySet="Tags" />
-      <End Role="Photos" EntitySet="Photos" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="Tags">
-    <Key>
-      <PropertyRef Name="Tag_id" />
-    </Key>
-    <Property Name="Tag_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="20" />
-  </EntityType>
-  <EntityType Name="Photos">
-    <Key>
-      <PropertyRef Name="Photo_id" />
-    </Key>
-    <Property Name="Photo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Tag_id" Type="int" Nullable="true" />
-    <Property Name="ImagePath" Type="nvarchar" Nullable="false" MaxLength="256" />
-  </EntityType>
-  <Association Name="FK_Photos_Tags">
-    <End Role="Tags" Type="MindFind_DBModel.Store.Tags" Multiplicity="0..1" />
-    <End Role="Photos" Type="MindFind_DBModel.Store.Photos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Tags">
-        <PropertyRef Name="Tag_id" />
-      </Principal>
-      <Dependent Role="Photos">
-        <PropertyRef Name="Tag_id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+    <Schema Namespace="MindFind_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Photos">
+          <Key>
+            <PropertyRef Name="Photo_id" />
+          </Key>
+          <Property Name="Photo_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tag_id" Type="int" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="ImageSrc" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Tags">
+          <Key>
+            <PropertyRef Name="Tag_id" />
+          </Key>
+          <Property Name="Tag_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Photos_Tags">
+          <End Role="Tags" Type="Self.Tags" Multiplicity="0..1" />
+          <End Role="Photos" Type="Self.Photos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tags">
+              <PropertyRef Name="Tag_id" />
+            </Principal>
+            <Dependent Role="Photos">
+              <PropertyRef Name="Tag_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MindFind_DBModelStoreContainer">
+          <EntitySet Name="Photos" EntityType="Self.Photos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Photos_Tags" Association="Self.FK_Photos_Tags">
+            <End Role="Tags" EntitySet="Tags" />
+            <End Role="Photos" EntitySet="Photos" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MindFind_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -67,6 +68,7 @@
           <Property Name="Photo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Tag_id" Type="Int32" />
           <Property Name="ImagePath" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="ImageSrc" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Tags" Relationship="MindFind_DBModel.FK_Photos_Tags" FromRole="Photos" ToRole="Tags" />
         </EntityType>
         <Association Name="FK_Photos_Tags">
@@ -95,15 +97,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Photos">
-      <EntityTypeMapping TypeName="IsTypeOf(MindFind_DBModel.Photos)">
-        <MappingFragment StoreEntitySet="Photos">
-          <ScalarProperty Name="Photo_id" ColumnName="Photo_id" />
-          <ScalarProperty Name="Tag_id" ColumnName="Tag_id" />
-          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+          <EntitySetMapping Name="Photos">
+            <EntityTypeMapping TypeName="MindFind_DBModel.Photos">
+              <MappingFragment StoreEntitySet="Photos">
+                <ScalarProperty Name="ImageSrc" ColumnName="ImageSrc" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="Tag_id" ColumnName="Tag_id" />
+                <ScalarProperty Name="Photo_id" ColumnName="Photo_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

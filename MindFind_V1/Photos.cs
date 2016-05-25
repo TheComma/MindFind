@@ -17,6 +17,7 @@ namespace MindFind_V1
         public int Photo_id { get; set; }
         public Nullable<int> Tag_id { get; set; }
         public string ImagePath { get; set; }
+        public string ImageSrc { get; set; }
     
         public virtual Tags Tags { get; set; }
     }

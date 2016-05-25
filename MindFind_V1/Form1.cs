@@ -49,14 +49,11 @@ namespace MindFind_V1
         // Capture grabber;
 
         //nuotrauka, kuri eina i folderi
-        Image<Gray, byte> result, TrainedFace = null;
-
-        Image<Gray, byte> gray = null;
+        Image<Gray, byte> result = null;
         List<Image<Gray, byte>> trainingImages = new List<Image<Gray, byte>>();
         List<string> labels = new List<string>();
         List<string> NamePersons = new List<string>();
         int ContTrain, NumLabels, t;
-        string name, names = null;
 
         Stopwatch swStopWatch = new Stopwatch();
         private void loadAndProcessImage()
@@ -110,6 +107,7 @@ namespace MindFind_V1
                         string savePath = Application.StartupPath + "/TrainedFaces/" + t.Name + index + ".bmp";
                         Photos ph = new Photos();
                         ph.Tags = t;
+                        ph.ImageSrc = ft;
                         ph.ImagePath = savePath;
                         db.Photos.Add(ph);
                     }
@@ -146,34 +144,7 @@ namespace MindFind_V1
             //Load haarcascades for face detection
             //face = new HaarCascade("haarcascade_frontalface_default.xml");
             //eye = new HaarCascade("haarcascade_eye.xml");
-            try
-            {
-                //Load of previus trainned faces and labels for each image
-                string Labelsinfo = File.ReadAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt");
-                string[] Labels = Labelsinfo.Split('%');
-                NumLabels = Convert.ToInt16(Labels[0]);
-                ContTrain = NumLabels;
-                string LoadFaces;
 
-                for (int tf = 1; tf < NumLabels + 1; tf++)
-                {
-                    LoadFaces = "face" + tf + ".bmp";
-                    trainingImages.Add(new Image<Gray, byte>(Application.StartupPath + "/Nuotraukos/" + LoadFaces));
-                    labels.Add(Labels[tf]);
-                }
-
-            }
-            catch (Exception e)
-            {
-                //MessageBox.Show(e.ToString());
-                MessageBox.Show("Nothing in binary database, please add at least a face(Simply train the prototype with the Add Face Button).", "Triained faces load", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-        }
-
-        public Form1(string img)
-        {
-            ft = img;
         }
 
         private void label1_Click(object sender, EventArgs e)
